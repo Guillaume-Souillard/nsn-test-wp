@@ -1,0 +1,20 @@
+# 🚀 Ignore les fichiers de configuration sensible
+.env
+.env.local
+!env.example
+
+# 🐳 Ignore les fichiers et volumes Docker
+docker/mysql_data/
+docker/wordpress/.composer/
+docker/nginx/.logs/
+docker/wordpress/entrypoint.sh~
+
+# 📂 Ignore les fichiers système et IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+*.swp
+*.swo
+
