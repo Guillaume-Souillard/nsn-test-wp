@@ -44,6 +44,9 @@ else
     echo "🔹 WordPress est déjà installé."
 fi
 
+echo "🔌 Activation du plugin NSN LazyLoad..."
+wp plugin activate nsn-wp-lazyload-plugin --allow-root || true
+
 echo "✅ WordPress est maintenant totalement configuré et prêt à être utilisé !"
 echo "🚀 Démarrage de PHP-FPM..."
 exec "$@"
