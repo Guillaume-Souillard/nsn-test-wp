@@ -3,11 +3,10 @@ set -e
 
 echo "🚀 Démarrage du script d'installation automatique de WordPress..."
 
-# WP install
-if [ ! -d "/var/www/html/web/wp" ]; then
-    echo "📦 Installation de WordPress via Composer..."
-    composer install --no-interaction --prefer-dist --no-dev --optimize-autoloader
-fi
+# Composer
+echo "📦 Installation de Composer..."
+composer install --no-interaction --prefer-dist --no-dev --optimize-autoloader
+wait
 
 # .env install
 if [ -f "/var/www/html/.env.example" ] && [ ! -f "/var/www/html/.env" ]; then
