@@ -14,6 +14,12 @@ if [ -f "/var/www/html/.env.example" ] && [ ! -f "/var/www/html/.env" ]; then
     cp /var/www/html/.env.example /var/www/html/.env
 fi
 
+echo "🛠️ Vérification des permissions sur wp-content/uploads..."
+mkdir -p /var/www/html/web/app/uploads/
+chown -R www-data:www-data /var/www/html/web/app/uploads/
+chmod -R 755 /var/www/html/web/app/uploads/
+echo "✅ Permissions corrigées pour wp-content/uploads !"
+
 # wait mysql
 echo "⏳ Attente de la disponibilité de MySQL..."
 until mysqladmin ping -h"$WORDPRESS_DB_HOST" --silent; do

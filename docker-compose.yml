@@ -8,6 +8,7 @@ services:
     container_name: bedrock_wordpress
     volumes:
       - ./bedrock:/var/www/html
+      - ./bedrock/web/app/uploads:/var/www/html/web/app/uploads
     working_dir: /var/www/html
     depends_on:
       - mysql
