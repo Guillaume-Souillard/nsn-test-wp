@@ -10,6 +10,11 @@ RUN apt-get update && apt-get install -y \
 # install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# install wp-cli
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+    && chmod +x wp-cli.phar \
+    && mv wp-cli.phar /usr/local/bin/wp
+
 WORKDIR /var/www/html
 
 COPY bedrock /var/www/html
@@ -19,5 +24,10 @@ RUN composer install --no-interaction --prefer-dist --no-dev --optimize-autoload
 RUN chown -R www-data:www-data /var/www/html
 
 EXPOSE 9000
+
+COPY docker/wordpress/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["php-fpm"]
