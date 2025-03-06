@@ -1,0 +1,17 @@
+{
+  "name": "nsn-timber-theme",
+  "version": "1.0.0",
+  "description": "Timber theme with Tailwind CSS",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/css/style.css --watch",
+    "build": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/css/style.css --minify"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.16"
+  }
+}

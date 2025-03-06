@@ -1,0 +1,36 @@
+{
+  "name": "guillaume-souillard/nsn-timber-theme",
+  "description": "Starter theme to build a Timber theme",
+  "type":"wordpress-theme",
+  "license": "MIT",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "timber/timber": "2.x-dev"
+  },
+  "require-dev": {
+    "automattic/wordbless": "^0.4.2",
+    "yoast/wp-test-utils": "^1.0"
+  },
+  "extra": {
+    "installer-paths": {
+      "vendor/automattic/wordbless/": [
+        "automattic/wordbless"
+      ]
+    },
+    "wordpress-install-dir": "wordpress"
+  },
+  "config": {
+    "allow-plugins": {
+      "roots/wordpress-core-installer": true,
+      "composer/installers": true
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  }
+}

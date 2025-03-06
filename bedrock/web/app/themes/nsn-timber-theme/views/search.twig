@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div class="max-w-5xl mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for post in posts %}
+        {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+      {% endfor %}
+    </div>
+
+    <div class="mt-8 flex justify-center">
+      {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="bg-white rounded-lg shadow-sm p-6">
+		<h1 class="text-4xl font-bold text-gray-900 mb-6">{{ post.title }}</h1>
+
+		<div class="prose max-w-none">
+			{{ post.content }}
+		</div>
+
+		{% if posts %}
+			<div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+				{% for post in posts %}
+					<article class="bg-white rounded-lg shadow-sm overflow-hidden transition-transform hover:scale-105">
+						{% if post.thumbnail %}
+							<img
+									src="{{ post.thumbnail.src }}"
+									class="w-full h-48 object-cover"
+									alt="{{ post.thumbnail.alt }}"
+							>
+						{% endif %}
+						<div class="p-4">
+							<h2 class="text-xl font-semibold text-gray-900 mb-2">
+								<a href="{{ post.link }}" class="hover:text-blue-600">{{ post.title }}</a>
+							</h2>
+							<p class="text-gray-600 text-sm mb-4">{{ post.excerpt.strip().read_more(false) }}</p>
+							<a href="{{ post.link }}" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+								Lire la suite
+								<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+								</svg>
+							</a>
+						</div>
+					</article>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+{% endblock %}

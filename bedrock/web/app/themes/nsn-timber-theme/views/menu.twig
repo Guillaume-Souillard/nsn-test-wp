@@ -1,0 +1,45 @@
+<nav class="bg-white shadow-sm">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="flex justify-between h-16">
+			<div class="flex">
+				<div class="flex-shrink-0 flex items-center">
+					<a href="{{ site.home }}" class="flex items-center space-x-2">
+						{% if site.logo %}
+							<img class="h-8 w-auto" src="{{ site.logo }}" alt="{{ site.title }}">
+						{% else %}
+							<span class="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors">{{ site.title }}</span>
+						{% endif %}
+					</a>
+				</div>
+
+
+				<div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+					{% for item in menu.items %}
+						<a
+								href="{{ item.link }}"
+								class="{% if item.current %}border-blue-500 text-gray-900{% else %}border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700{% endif %} inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+						>
+							{{ item.title }}
+						</a>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="hidden sm:ml-6 sm:flex sm:items-center">
+				<form action="{{ site.link }}" method="get" class="relative">
+					<input
+							type="text"
+							name="s"
+							placeholder="Rechercher..."
+							class="block w-full pl-4 pr-10 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+					>
+					<button type="submit" class="absolute inset-y-0 right-0 pr-3 flex items-center">
+						<svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+						</svg>
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</nav> 

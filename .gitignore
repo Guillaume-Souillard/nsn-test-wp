@@ -8,6 +8,7 @@ docker/mysql_data/
 docker/wordpress/.composer/
 docker/nginx/.logs/
 docker/wordpress/entrypoint.sh~
+bedrock/docker
 
 # 📂 Ignore les fichiers système et IDE
 .DS_Store

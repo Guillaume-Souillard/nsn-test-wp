@@ -9,6 +9,7 @@ services:
     volumes:
       - ./bedrock:/var/www/html
       - ./bedrock/web/app/uploads:/var/www/html/web/app/uploads
+      - ./docker/wordpress/start-dump.sql:/var/www/html/docker/wordpress/start-dump.sql
     working_dir: /var/www/html
     depends_on:
       - mysql

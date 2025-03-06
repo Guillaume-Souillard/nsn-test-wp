@@ -1,0 +1,21 @@
+<div class="bg-white shadow-lg rounded-xl p-6 border border-gray-200 mb-6 {{ comment.comment_type }}" id="blog-comment-{{ comment.ID }}">
+	<h5 class="text-lg font-semibold text-gray-900">{{ comment.author.name }} says</h5>
+	<div class="mt-2 text-gray-700 border-l-4 border-gray-300 pl-4">
+		{{ comment.comment_content|wpautop }}
+	</div>
+
+	<section class="mt-6">
+		<!-- Comment form -->
+		{% include "comment-form.twig" %}
+
+		<!-- Child comments -->
+		{% if comment.children %}
+			<h4 class="text-md font-medium text-gray-800 mt-6">Replies</h4>
+			<div class="ml-6 border-l-2 border-gray-300 pl-4 mt-4 space-y-4">
+				{% for cmt in comment.children %}
+					{% include "comment.twig" with {comment: cmt} %}
+				{% endfor %}
+			</div>
+		{% endif %}
+	</section>
+</div>

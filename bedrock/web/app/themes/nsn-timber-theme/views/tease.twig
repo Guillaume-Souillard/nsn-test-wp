@@ -1,0 +1,13 @@
+<article class="bg-white shadow-lg rounded-xl overflow-hidden p-5 border border-gray-200" id="tease-{{post.id}}">
+	{% block content %}
+		<h2 class="text-xl font-semibold text-gray-900 hover:underline">
+			<a href="{{ post.link }}">{{ post.title }}</a>
+		</h2>
+		<p class="text-gray-600 mt-2">
+			{{ post.excerpt }}
+		</p>
+		{% if post.thumbnail %}
+			<img src="{{ post.thumbnail.src }}" class="w-full h-48 object-cover rounded-lg mt-3" />
+		{% endif %}
+	{% endblock %}
+</article>

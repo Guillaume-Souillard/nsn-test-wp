@@ -1,0 +1,84 @@
+{% if posts.pagination.pages is not empty %}
+    <nav class="flex justify-center mt-8">
+        <ul class="flex space-x-2">
+
+            {# First #}
+            {% if posts.pagination.pages|first and posts.pagination.pages|first.current != true %}
+                <li>
+                    <a href="{{ posts.pagination.pages|first.link }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300">
+                        First
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <button disabled class="px-4 py-2 bg-gray-100 text-gray-400 rounded-lg cursor-not-allowed">
+                        First
+                    </button>
+                </li>
+            {% endif %}
+
+            {# Previous #}
+            {% if posts.pagination.prev %}
+                <li>
+                    <a href="{{ posts.pagination.prev.link }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300">
+                        Previous
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <button disabled class="px-4 py-2 bg-gray-100 text-gray-400 rounded-lg cursor-not-allowed">
+                        Previous
+                    </button>
+                </li>
+            {% endif %}
+
+            {# Pages #}
+            {% for page in posts.pagination.pages %}
+                {% if page.link %}
+                    <li>
+                        <a href="{{ page.link }}" class="px-4 py-2 rounded-lg {% if page.current %} bg-blue-600 text-white {% else %} bg-gray-200 text-gray-700 hover:bg-gray-300 {% endif %}">
+                            {{ page.title }}
+                        </a>
+                    </li>
+                {% else %}
+                    <li>
+                        <span class="px-4 py-2 bg-blue-600 text-white rounded-lg">
+                            {{ page.title }}
+                        </span>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            {# Next #}
+            {% if posts.pagination.next %}
+                <li>
+                    <a href="{{ posts.pagination.next.link }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300">
+                        Next
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <button disabled class="px-4 py-2 bg-gray-100 text-gray-400 rounded-lg cursor-not-allowed">
+                        Next
+                    </button>
+                </li>
+            {% endif %}
+
+            {# Last #}
+            {% if posts.pagination.pages|last and posts.pagination.pages|last.current != true %}
+                <li>
+                    <a href="{{ posts.pagination.pages|last.link }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300">
+                        Last
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <button disabled class="px-4 py-2 bg-gray-100 text-gray-400 rounded-lg cursor-not-allowed">
+                        Last
+                    </button>
+                </li>
+            {% endif %}
+
+        </ul>
+    </nav>
+{% endif %}
