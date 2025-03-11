@@ -15,7 +15,7 @@ docker compose build
 docker compose up -d
 ```
 
-Ensuite, rendez-vous ici : 
+Ensuite, rendez-vous ici (Bien attendre que le container php a bien fini sa popote d'installation de composer etc... Voir entrypoint.sh pour plus d'infos): 
 
 http://localhost:89/sample-page/
 
